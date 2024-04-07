@@ -2,59 +2,53 @@ import java.util.Arrays;
 
 public class firt_last_binarySearch {
     public static void main(String[] args) {
-        int[] nums = {1};
-        int target = 1;
-        System.out.println(Arrays.toString(first_last_algo(nums,target)));
+        int[] nums = {5,7,7,8,8,10};
+        int target = 8;
+        int[] arr = new int[2];
+        int a = lower_bound(nums,target);
+        int b = higher_bound(nums,target);
+        if (a<b){
+            arr[0] = a;
+            arr[1] = b; 
+        }
+        else{
+            arr[0] = b;
+            arr[1] = a; 
+        }
+        System.out.println(Arrays.toString(arr));
+        // System.out.println(lower_bound(nums,target));
+        // System.out.println(higher_bound(nums,target));
     }
-    static int[] first_last_algo(int[] nums, int target){
-        int start = 0;
-        int end = nums.length -1;
-        if (nums.length == 0){
-            return new int[] {-1,-1};
-        }
-        if (nums.length == 1){
-            if (target == nums[0]){
-                return new int[] {-1,-1};
-            }
-        }
-        while(start <= end){
-            int mid = start + ((end - start)/2);
-            if (target == nums[mid]){
-                if (nums[mid-1] == target){
-                    return new int[] {mid-1,mid};
-                }
-                if (nums[mid+1] == target){
-                    return new int[] {mid,mid+1};
-                }
-            }
-            else if( target > nums[mid]){
-                start = mid +1;
+    static int lower_bound(int[] nums, int target){
+        int low = 0;
+        int high = nums.length -1;
+        int ans = -1;
+        while(low<=high){
+            int mid = low + ((high - low)/2);
+            if (nums[mid]<= target){
+                ans = mid;
+                low = mid +1;
             }
             else{
-                end = mid -1;
+                high = mid -1;
             }
         }
-        return new int[] {-1,-1};
+        return ans;
     }
-    static int[] first_last_tuf(int[] v, int key){
-        int n = v.length;
-        int start = 0;
-        int end = n - 1;
-        int[] res = {};
-
-        while (start <= end) {
-        int mid = start + (end - start) / 2;
-        if (v[mid] == key) {
-                if (start == 0){
-                    
-                }
-
-        } else if (key < v[mid]) {
-            end = mid - 1;
-        } else {
-            start = mid + 1;
+    static int higher_bound(int[] nums, int target){
+        int low = 0;
+        int high = nums.length -1;
+        int ans = nums.length;
+        while(low<=high){
+            int mid = low + ((high - low)/2);
+            if (nums[mid]>= target){
+                ans = mid;
+                high = mid -1;
+            }
+            else{
+                low = mid +1;
+            }
         }
-        }
-        return int[] res;
+        return ans;
     }
 }
