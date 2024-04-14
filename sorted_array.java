@@ -1,4 +1,3 @@
-package leetcode;
 
 public class sorted_array {
     

@@ -2,21 +2,24 @@ import java.util.Arrays;
 
 public class firt_last_binarySearch {
     public static void main(String[] args) {
-        int[] nums = {0,0,1,1,2,2,2,2};
-        int target = 2;
-        int[] arr = new int[2];
-        int a = lower_bound(nums,target);
-        if (a == -1 || nums[a] != target){
-            System.out.println(Arrays.toString(new int[]{-1,-1}));
-        }
-        int b = higher_bound(nums,target);
-        // int first = first_occurence_binarySearch(nums, target);
+        int[] nums = {1,2,4,4,5};
+        int target = 6;
+        // int[] arr = new int[2];
+        // int a = lower_bound(nums,target);
+        // if (a == -1 || nums[a] != target){
+        //     System.out.println(Arrays.toString(new int[]{-1,-1}));
+        // }
+        // int b = higher_bound(nums,target);
+        int first = first_occurence_binarySearch(nums, target);
         // if (first == -1){
         //     System.out.println(-1);
         // }
-        // int last  = last_occurence_binarySearch(nums, target);
+        int last  = last_occurence_binarySearch(nums, target);
+        System.out.println(last - first + 1);
+        System.out.println(first);
+        System.out.println(last);
         // System.out.println(first+""+last);
-        System.out.println(Arrays.toString(arr));
+        // System.out.println(Arrays.toString(arr));
         // System.out.println(lower_bound(nums,target));
         // System.out.println(higher_bound(nums,target));
     }

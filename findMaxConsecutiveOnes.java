@@ -1,4 +1,3 @@
-package leetcode;
 
 public class findMaxConsecutiveOnes {
     public static void main(String[] args) {
