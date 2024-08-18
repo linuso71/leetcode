@@ -4,9 +4,9 @@ import java.util.HashMap;
 
 public class twosum {
     public static void main(String[] args) {
-        int[] nums = {2,7,11,15};
-        int target = 9;
-        System.out.println(Arrays.toString(findtarget_twopointer(nums,target)));
+        int[] nums = {3,2,3};
+        int target = 6;
+        System.out.println(Arrays.toString(twosum_binarySearch(nums,target)));
         
     }
     static int[] findtarget(int[] nums,int target){
@@ -69,5 +69,32 @@ public class twosum {
             }
         }
     }
+    // not working
+    static int[] twosum_binarySearch(int[] nums,int target){
+        int i = 0;
+        int start = i+1;
+        int end = nums.length-1;
+        while(start<end){
+        int mid = (start + end )/2;
+        if (target == nums[mid] + nums[i]){
+            return new int[] {i,mid};
+        }
+        else{
+            if (nums[mid] + nums[i] < target){
+                start = mid +1;
+            }
+            else{
+                end = mid-1;
+
+            }
+
+        }
+    }
+        // i++;
+        return new int[] {-1,-1};
+
+    }
+
+    
     
 }
